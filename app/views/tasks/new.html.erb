@@ -1,0 +1,32 @@
+<div class="container mt-5">
+  <h1 class="text-primary text-center">📝 Nouvelle tâche</h1>
+
+  <div class="card shadow-sm rounded p-4 mt-4">
+    <%= form_with(model: @task, url: tasks_path, local: true) do |form| %>
+
+      <div class="mb-3">
+        <%= form.label :title, "Titre", class: "form-label fw-bold" %>
+        <%= form.text_field :title, class: "form-control", placeholder: "Ex: Faire les courses" %>
+      </div>
+
+      <div class="mb-3">
+        <%= form.label :details, "Détails", class: "form-label fw-bold" %>
+        <%= form.text_area :details, class: "form-control", placeholder: "Ajoutez une description..." %>
+      </div>
+
+      <div class="form-check mb-3">
+        <%= form.check_box :completed, class: "form-check-input" %>
+        <%= form.label :completed, "Marquer comme terminée", class: "form-check-label" %>
+      </div>
+
+      <div class="text-center">
+        <%= form.submit "✅ Créer la tâche", class: "btn btn-primary w-100" %>
+      </div>
+
+    <% end %>
+  </div>
+
+  <div class="text-center mt-3">
+    <%= link_to "↩️ Retour à la liste", tasks_path, class: "btn btn-secondary" %>
+  </div>
+</div>
